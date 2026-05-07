@@ -5,6 +5,7 @@ require('dotenv').config();
 const pool = require('./db');
 const authRoutes = require('./routes/auth');
 const customersRoutes = require('./routes/customers');
+const offersRoutes = require('./routes/offers');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/customers', customersRoutes);
+app.use('/offers', offersRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: '🌿 Vasudha API is running' });
